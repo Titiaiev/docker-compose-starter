@@ -1,4 +1,4 @@
-FROM node:8.12-alpine
+FROM node:10-alpine
 EXPOSE 8080
 COPY package.json /app/
 RUN cd /app && \

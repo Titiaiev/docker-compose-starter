@@ -1,17 +1,31 @@
-# Docker-compose Starter
+## Docker команды
+
+[Шпаргалка по docker](https://habr.com/ru/company/flant/blog/336654/)  
+[DO guide-1](https://www.digitalocean.com/community/tutorials/how-to-build-a-node-js-application-with-docker)  
+[DO - How To Secure a Containerized Node.js Application with Nginx, Let's Encrypt, and Docker Compose](https://www.digitalocean.com/community/tutorials/how-to-secure-a-containerized-node-js-application-with-nginx-let-s-encrypt-and-docker-compose)  
+[Как установить Nginx в Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/nginx-ubuntu-18-04-ru)
+
+### Команды для Windows
 ```sh
 docker-machine start default
 docker-compose up --build
 ```
+### Команды для использования
 
-`docker ps -a`
+`docker ps -a`  ---  посмотреть запущеные контейнеры  
+`docker run -it <container_name>`  ---  запуск контейнера по идентефикатору  
+`docker inspect app_nginx_1 | grep IPAddress | cut -d '"' -f 4`  ---  узнать ip nginx  
+`docker exec -it <id of container> bash`  ---  зайти в контейнер и запустить bash  
 
-`docker run -it <container_name>` 
+## Структура
 
-
-
-
-
+- api -- сервис
+- bin --- находятся скрипты для запуска docker
+- database -- база данных
+- logs -- логи доступа и ошибки nginx
+- nginx -- конфигурация прокси-сервера
+- static -- статичные файлы (стили, шрифты, скрипты, картинки ...)
+- web -- приложение
 
 
 
@@ -69,27 +83,5 @@ Dockerfile.dev used to run every project on local environment. There are two rea
 
 If image size is not an issue - I would recommend to keep same Dockerfile for both development and production environments. You might also want to look into [this](https://github.com/paralect/docker-compose-starter/issues/3) discussion
 
-## Change Log
-
-This project adheres to [Semantic Versioning](http://semver.org/).
-Every release is documented on the Github [Releases](https://github.com/paralect/docker-compose-starter/releases) page.
-
-## License
-
-Docker-compose Starter is released under the [MIT License](LICENSE).
-
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Contributors
-
-Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
-| [<img src="https://avatars3.githubusercontent.com/u/681396?v=4" width="100px;"/><br /><sub><b>Andrew Orsich</b></sub>](http://paralect.com)<br />[💬](#question-anorsich "Answering Questions") [📝](#blog-anorsich "Blogposts") [💻](https://github.com/auxilincom/docker-compose-starter/commits?author=anorsich "Code") [🤔](#ideas-anorsich "Ideas, Planning, & Feedback") |
-| :---: |
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
+## Прототип
+[Github](https://github.com/paralect/docker-compose-starter/)
